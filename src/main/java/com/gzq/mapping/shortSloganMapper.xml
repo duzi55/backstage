@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gzq.dao.shortSloganMapper">
+  <resultMap id="BaseResultMap" type="com.gzq.entity.shortSlogan">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="second_title" jdbcType="VARCHAR" property="secondTitle" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="first_title" jdbcType="VARCHAR" property="firstTitle" />
+    <result column="href" jdbcType="VARCHAR" property="href" />
+    <result column="src" jdbcType="VARCHAR" property="src" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gzq.entity.shortSlogan">
+    insert into short_slogan (id, second_title, status, 
+      first_title, href, src
+      )
+    values (#{id,jdbcType=BIGINT}, #{secondTitle,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{firstTitle,jdbcType=VARCHAR}, #{href,jdbcType=VARCHAR}, #{src,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gzq.entity.shortSlogan">
+    insert into short_slogan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="secondTitle != null">
+        second_title,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="firstTitle != null">
+        first_title,
+      </if>
+      <if test="href != null">
+        href,
+      </if>
+      <if test="src != null">
+        src,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="secondTitle != null">
+        #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="firstTitle != null">
+        #{firstTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null">
+        #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="src != null">
+        #{src,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
