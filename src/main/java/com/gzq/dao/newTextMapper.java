@@ -1,9 +1,19 @@
 package com.gzq.dao;
 
-import com.gzq.entity.newText;
+import com.gzq.entity.NewText;
 
-public interface newTextMapper {
-    int insert(newText record);
+public interface NewTextMapper {
+    int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(newText record);
+    int insert(NewText record);
+
+    int insertSelective(NewText record);
+
+    NewText selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(NewText record);
+
+    int updateByPrimaryKeyWithBLOBs(NewText record);
+
+    int updateByPrimaryKey(NewText record);
 }

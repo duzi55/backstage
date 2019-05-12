@@ -2,7 +2,7 @@ package com.gzq.entity;
 
 import java.util.Date;
 
-public class newText {
+public class NewText {
     private Integer id;
 
     private Date date;

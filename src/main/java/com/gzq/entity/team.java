@@ -1,6 +1,6 @@
 package com.gzq.entity;
 
-public class team {
+public class Team {
     private Long id;
 
     private String experience;

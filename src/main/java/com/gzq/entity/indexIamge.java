@@ -1,6 +1,6 @@
 package com.gzq.entity;
 
-public class indexIamge {
+public class IndexIamge {
     private Integer id;
 
     private String src;

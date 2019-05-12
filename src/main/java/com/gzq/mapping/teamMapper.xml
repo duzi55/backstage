@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gzq.dao.teamMapper">
-  <resultMap id="BaseResultMap" type="com.gzq.entity.team">
-    <result column="id" jdbcType="BIGINT" property="id" />
+<mapper namespace="com.gzq.dao.TeamMapper">
+  <resultMap id="BaseResultMap" type="com.gzq.entity.Team">
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="experience" jdbcType="VARCHAR" property="experience" />
     <result column="image" jdbcType="VARCHAR" property="image" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -12,7 +12,20 @@
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="adress" jdbcType="VARCHAR" property="adress" />
   </resultMap>
-  <insert id="insert" parameterType="com.gzq.entity.team">
+  <sql id="Base_Column_List">
+    id, experience, image, name, postition, salary, href, status, adress
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from team
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from team
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gzq.entity.Team">
     insert into team (id, experience, image, 
       name, postition, salary, 
       href, status, adress
@@ -22,7 +35,7 @@
       #{href,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.gzq.entity.team">
+  <insert id="insertSelective" parameterType="com.gzq.entity.Team">
     insert into team
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -83,4 +96,46 @@
       </if>
     </trim>
   </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gzq.entity.Team">
+    update team
+    <set>
+      <if test="experience != null">
+        experience = #{experience,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="postition != null">
+        postition = #{postition,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null">
+        href = #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="adress != null">
+        adress = #{adress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gzq.entity.Team">
+    update team
+    set experience = #{experience,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      postition = #{postition,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      href = #{href,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      adress = #{adress,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
 </mapper>

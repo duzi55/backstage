@@ -1,9 +1,17 @@
 package com.gzq.dao;
 
-import com.gzq.entity.indexPropaganda;
+import com.gzq.entity.IndexPropaganda;
 
-public interface indexPropagandaMapper {
-    int insert(indexPropaganda record);
+public interface IndexPropagandaMapper {
+    int deleteByPrimaryKey(Long id);
 
-    int insertSelective(indexPropaganda record);
+    int insert(IndexPropaganda record);
+
+    int insertSelective(IndexPropaganda record);
+
+    IndexPropaganda selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(IndexPropaganda record);
+
+    int updateByPrimaryKey(IndexPropaganda record);
 }

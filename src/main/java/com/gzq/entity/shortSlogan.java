@@ -1,6 +1,6 @@
 package com.gzq.entity;
 
-public class shortSlogan {
+public class ShortSlogan {
     private Long id;
 
     private String secondTitle;

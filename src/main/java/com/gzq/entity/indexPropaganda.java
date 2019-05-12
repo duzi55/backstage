@@ -1,6 +1,6 @@
 package com.gzq.entity;
 
-public class indexPropaganda {
+public class IndexPropaganda {
     private Long id;
 
     private String href;
