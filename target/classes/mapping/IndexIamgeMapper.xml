@@ -55,4 +55,13 @@
     set src = #{src,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findAll" resultType="com.gzq.entity.IndexIamge">
+    select * from index_image
+  </select>
+  <delete id="deleteIndexImgById" parameterType="java.lang.Integer">
+    delete from index_image where id=#{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="saveImage" parameterType="java.lang.String">
+    insert into index_image (src) values (#{src,jdbcType=VARCHAR})
+  </insert>
 </mapper>
