@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        $('#sub').click(function () {
+        $('#formId').submit(function () {
             var str = $('#image1').val();
             if (str == '' || str == undefined || str == null) {
                 alert('请选择文件')
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 });
 function deleteImage(imageId) {
-    console.log(imageId)
+    // console.log(imageId)
     var rst=confirm("你真的确定要删除吗?");
     if (rst==true){
        $.post("/jiyu/image/deleteindeximg",{id:imageId},function (data) {
@@ -40,7 +40,5 @@ function deleteImage(imageId) {
            window.location.href='/jiyu/adv.html'
        })
     }
-    else{
 
-    }
 }

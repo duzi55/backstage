@@ -94,13 +94,14 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.gzq.entity.IndexPropaganda">
+  <update id="updatePropaganda" parameterType="com.gzq.entity.IndexPropaganda">
     update index_propaganda
     set href = #{href,jdbcType=VARCHAR},
       text = #{text,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      company = #{company,jdbcType=VARCHAR},
-      slogan = #{slogan,jdbcType=VARCHAR}
+      title = #{title,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="findAll" resultType="com.gzq.entity.IndexPropaganda">
+    select * from index_propaganda where id in(1,2)
+  </select>
 </mapper>

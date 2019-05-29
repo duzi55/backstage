@@ -60,4 +60,16 @@ public class IndexPropaganda {
     public void setSlogan(String slogan) {
         this.slogan = slogan == null ? null : slogan.trim();
     }
+
+    @Override
+    public String toString() {
+        return "IndexPropaganda{" +
+                "id=" + id +
+                ", href='" + href + '\'' +
+                ", text='" + text + '\'' +
+                ", title='" + title + '\'' +
+                ", company='" + company + '\'' +
+                ", slogan='" + slogan + '\'' +
+                '}';
+    }
 }

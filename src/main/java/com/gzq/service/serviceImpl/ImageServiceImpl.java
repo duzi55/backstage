@@ -39,11 +39,11 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public boolean saveIndexImage(HttpServletRequest req, MultipartHttpServletRequest multiReq) {
+    public boolean saveIndexImage( MultipartHttpServletRequest multiReq) {
         IndexIamge indexIamge=new IndexIamge();
         boolean flag =false;
         try {
-            String rs=UploadFile.UploadFile(req,multiReq,filePath);
+            String rs=UploadFile.UploadFile(multiReq,filePath);
             indexIamge.setSrc(rs);
            int i= indexIamgeMapper.saveImage(indexIamge);
             if(i>0){

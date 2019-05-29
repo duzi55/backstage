@@ -16,8 +16,8 @@ import java.io.IOException;
  * @date: 2019-05-22 10:50
  */
 public class UploadFile {
-    public static String UploadFile(HttpServletRequest req, MultipartHttpServletRequest multiReq,String filePath) throws IOException {
-       // System.out.println("___________"+ multiReq.getFile("file"));
+    public static String UploadFile(MultipartHttpServletRequest multiReq,String filePath) throws IOException {
+        System.out.println("___________"+ multiReq.getFile("file"));
         MultipartFile multipartFile= multiReq.getFile("file");
         String filename=multipartFile.getOriginalFilename();
        // System.out.println("文件名字："+filename);

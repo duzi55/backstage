@@ -1,65 +1,175 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="renderer" content="webkit">
-<title></title>
-<link rel="stylesheet" href="css/pintuer.css">
-<link rel="stylesheet" href="css/admin.css">
-<script src="js/jquery.js"></script>
-<script src="js/pintuer.js"></script>
+  <meta charset="utf-8">
+  <title>Bootstrap 实例 - 边框表格</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/pintuer.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/pass.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong><span class="icon-key"></span> 修改会员密码</strong></div>
+  <div class="panel-head"> <caption>我们的目标
+    <div class="btn-group" style="width: 120px;float:right">
+      <button type="button" class="btn btn-info btn-sm">修改标题</button>
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" id="savasl">添加</button>
+    </div>
+  </caption></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">
-      <div class="form-group">
-        <div class="label">
-          <label for="sitename">管理员帐号：</label>
-        </div>
-        <div class="field">
-          <label style="line-height:33px;">
-           admin
-          </label>
-        </div>
-      </div>      
-      <div class="form-group">
-        <div class="label">
-          <label for="sitename">原始密码：</label>
-        </div>
-        <div class="field">
-          <input type="password" class="input w50" id="mpass" name="mpass" size="50" placeholder="请输入原始密码" data-validate="required:请输入原始密码" />       
-        </div>
-      </div>      
-      <div class="form-group">
-        <div class="label">
-          <label for="sitename">新密码：</label>
-        </div>
-        <div class="field">
-          <input type="password" class="input w50" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
-          <label for="sitename">确认新密码：</label>
-        </div>
-        <div class="field">
-          <input type="password" class="input w50" name="renewpass" size="50" placeholder="请再次输入新密码" data-validate="required:请再次输入新密码,repeat#newpass:两次输入的密码不一致" />          
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <div class="label">
-          <label></label>
-        </div>
-        <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>   
-        </div>
-      </div>      
-    </form>
+    <div class="form-x">
+<table class="table table-hover" style="text-align: center;">
+  <thead>
+  <tr>
+    <th>标题1</th>
+    <th>标题2</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody id="slogan1">
+  </tbody>
+</table>
+    </div>
+    <hr>
   </div>
 </div>
-</body></html>
+<!---------------------------------------------------第一个标题--------------------------------------------------------->
+<div class="panel admin-panel">
+  <div class="panel-head"> <caption><span id="ptitle1">第一个标题</span>(<span id="pslogan1"></span>)
+    <div class="btn-group" style="width: 120px;float:right">
+      <button type="button" class="btn btn-info btn-sm">修改标题</button>
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal1" id="sava1">添加</button>
+    </div>
+  </caption></div>
+  <div class="body-content">
+    <div class="form-x">
+      <table class="table table-hover" style="text-align: center;">
+        <thead>
+        <tr>
+          <th>标题1</th>
+          <th>标题2</th>
+          <th>地址</th>
+          <th>图片</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="slogan2">
+        <tr>
+          <td>Tanmay</td>
+          <td>Bangalore</td>
+          <td>123</td>
+          <td>123</td>
+          <td style="width: 120px">
+            <div class="btn-group" style="width: 120px;">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">修改</button>
+              <button type="button" class="btn btn-primary">删除</button>
+            </div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--2-->
+<!---------------------------------------------------第二个标题--------------------------------------------------------->
+<div class="panel admin-panel">
+  <div class="panel-head"> <caption><span id="ptitle2">第一个标题</span>(<span id="pslogan2"></span>)
+    <div class="btn-group" style="width: 120px;float:right">
+      <button type="button" class="btn btn-info btn-sm">修改标题</button>
+      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal1" id="sava2">添加</button>
+    </div>
+  </caption></div>
+  <div class="body-content">
+    <div class="form-x">
+      <table class="table table-hover" style="text-align: center;">
+        <thead>
+        <tr>
+          <th>标题1</th>
+          <th>标题2</th>
+          <th>地址</th>
+          <th>图片</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="slogan3">
+        <tr>
+          <td>Tanmay</td>
+          <td>Bangalore</td>
+          <td>qwe</td>
+          <td>qwe</td>
+          <td style="width: 120px">
+            <div class="btn-group" style="width: 120px;">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">修改</button>
+              <button type="button" class="btn btn-primary">删除</button>
+            </div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- -----------------------------------------------模态框0（Modal）--------------------------------------------------------------- -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel">
+          修改
+        </h4>
+      </div>
+      <div class="modal-body">
+        &nbsp;&nbsp;标题1:<input class="well well-sm" style="width: 500px;" id="uptitle1"><hr>
+        &nbsp;&nbsp;标题2:<input class="well well-sm" style="width: 500px;" id="uptitle2">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary" id="titleupdate">
+          提交更改
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+<!-- -----------------------------------------------模态框1（Modal）--------------------------------------------------------------- -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel1">
+          修改
+        </h4>
+      </div>
+      <form id="tj" enctype="multipart/form-data" onsubmit="return false;">
+      <div class="modal-body">
+        &nbsp;&nbsp;标题1: <input class="well well-sm" style="width: 500px;" id="uptitle3" name="title1" required="required"><hr>
+        &nbsp;&nbsp;标题2 : <input class="well well-sm" style="width: 500px;" id="uptitle4" name="title2" required="required"><hr>
+        &nbsp;&nbsp;地址 : <input class="well well-sm" style="width: 500px;" id="uphref" name="href" required="required"><hr>
+       &nbsp;&nbsp;图片 : <input type="file" class="btn btn-info" style="display: inline-block;" id="upsrc" name="file" required="required">
+        <span id="progress">
+          <span class="progress-item"></span>
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="submit" class="btn btn-primary">
+          提交更改
+        </button>
+      </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+</body>
+</html>

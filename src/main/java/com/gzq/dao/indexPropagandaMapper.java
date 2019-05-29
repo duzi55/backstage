@@ -2,6 +2,8 @@ package com.gzq.dao;
 
 import com.gzq.entity.IndexPropaganda;
 
+import java.util.List;
+
 public interface IndexPropagandaMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -13,5 +15,6 @@ public interface IndexPropagandaMapper {
 
     int updateByPrimaryKeySelective(IndexPropaganda record);
 
-    int updateByPrimaryKey(IndexPropaganda record);
+    int updatePropaganda(IndexPropaganda record);
+    List<IndexPropaganda> findAll();
 }
