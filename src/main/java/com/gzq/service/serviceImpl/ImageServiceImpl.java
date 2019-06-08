@@ -31,8 +31,10 @@ public class ImageServiceImpl implements ImageService {
     }
     public boolean deleteIndexImgById(Integer id){
         boolean flag = false;
+        String src=indexIamgeMapper.selectByPrimaryKey(id).getSrc();
+        boolean rs=UploadFile.deleteImage(src);
         int i= indexIamgeMapper.deleteIndexImgById(id);
-        if(i>0){
+        if(i>0&&rs){
             flag = true;
         }
         return flag;

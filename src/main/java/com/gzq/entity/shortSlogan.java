@@ -60,4 +60,16 @@ public class ShortSlogan {
     public void setSrc(String src) {
         this.src = src == null ? null : src.trim();
     }
+
+    @Override
+    public String toString() {
+        return "ShortSlogan{" +
+                "id=" + id +
+                ", secondTitle='" + secondTitle + '\'' +
+                ", status=" + status +
+                ", firstTitle='" + firstTitle + '\'' +
+                ", href='" + href + '\'' +
+                ", src='" + src + '\'' +
+                '}';
+    }
 }

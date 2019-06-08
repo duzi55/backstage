@@ -55,14 +55,8 @@ public class PropagandaController {
 //        System.out.println("id是多少"+id);
         return propagandaService.deleteShortSlogan(id);
     }
-    @RequestMapping("uploadtest")
-    public void upLoadTest(@PathParam("file")MultipartHttpServletRequest mul,@PathParam("title1")String title1,@PathParam("title2")String title2,@PathParam("href")String href){
-    System.out.println(title1+'\n'+title2+'\n'+href+"\n");
-        try {
-           String rs= UploadFile.UploadFile(mul,file);
-           System.out.println("路径："+rs);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @RequestMapping("uploadsloganimage")
+    public boolean upLoadTest(@PathParam("file")MultipartHttpServletRequest mul,@PathParam("title1")String title1,@PathParam("title2")String title2,@PathParam("href")String href,@PathParam("status")Integer status){
+        return propagandaService.savaShortSlogan1(mul,title1,title2,href,status);
     }
 }

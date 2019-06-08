@@ -1,15 +1,40 @@
 $(document).ready(function(){
-        $('#formId').submit(function () {
-            var str = $('#image1').val();
-            if (str == '' || str == undefined || str == null) {
-                alert('请选择文件')
-            }else{
-                //是form提交，不是button，input的的，记得id也不要取成关键字！！
-                $('#formId').submit();
-                confirm("提交成功！")
-                window.location.href='/jiyu/adv.html'
+    $("#formId").submit(function () {
+        var form= new FormData(document.getElementById("formId"))
+        $.ajax({
+            url:"/jiyu/image/upload",
+            type:"post",
+            data:form,
+            processData:false,
+            contentType:false,
+            xhr: function() { //用以显示上传进度
+                var xhr = $.ajaxSettings.xhr();
+                if (xhr.upload) {
+                    xhr.upload.addEventListener('progress', function(event) {
+                        var percent = Math.floor(event.loaded / event.total * 100);
+                        // document.querySelector("#progress .progress-item").style.width = percent + "%";
+                        //  $("#progress .progress-item").text(percent + "%")
+                        if(percent==100){
+                            confirm("上传成功")
+                        }
+                    }, false);
+                }
+                return xhr
+            },
+            success:function(data){
+                if(data){
+
+                    window.location.href='/jiyu/adv.html'
+                }
+
+            },
+            error:function(e){
+                alert("错误！！");
+
             }
-        })
+        });
+    })
+
     $.get("/jiyu/image/findindeximage", function(data){
         for(i=0;i<data.length;i++){
             $('.table.table-hover.text-center').append('\n' +
@@ -25,7 +50,6 @@ $(document).ready(function(){
                 '   ')
         }
     });
-
 
 
 

@@ -33,12 +33,17 @@ $(document).ready(function(){
     })
     $("#ptitle1").text("第一个标题")
     $("#pslogan1").text("短语")
-
+    $("#sava1").click(function () {
+        $("#status").val(2)
+    })
+    $("#sava2").click(function () {
+        $("#status").val(1)
+    })
     $("#tj").submit(function () {
 
         var form= new FormData(document.getElementById("tj"))
         $.ajax({
-            url:"/jiyu/propaganda/uploadtest",
+            url:"/jiyu/propaganda/uploadsloganimage",
             type:"post",
             data:form,
             processData:false,
@@ -58,8 +63,10 @@ $(document).ready(function(){
                 return xhr
             },
             success:function(data){
+                if(data){
+                    window.location.href="pass.html"
+                }
 
-                console.log("over..");
             },
             error:function(e){
                 alert("错误！！");
@@ -67,9 +74,18 @@ $(document).ready(function(){
             }
         });
     })
-
-
 })
+
+//修改标题什么的
+$.get("/jiyu/propaganda/indexpropaganda",function (data) {
+    console.log(data)
+    $("#ptitle1").text(data[3].title)
+    $("#pslogan1").text(data[3].slogan)
+    $("#ptitle2").text(data[4].title)
+    $("#pslogan2").text(data[4].slogan)
+
+});
+
 
 //----------------------------------------------------------------定义titleupdate函数----------------------------------------------------------------------------------------------
 function titleupdate(x,y,z) {

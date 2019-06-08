@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 public class UploadFile {
     public static String UploadFile(MultipartHttpServletRequest multiReq,String filePath) throws IOException {
-        System.out.println("___________"+ multiReq.getFile("file"));
+//        System.out.println("___________"+ multiReq.getFile("file"));
         MultipartFile multipartFile= multiReq.getFile("file");
         String filename=multipartFile.getOriginalFilename();
        // System.out.println("文件名字："+filename);
@@ -25,5 +25,9 @@ public class UploadFile {
        // System.out.println(file.getPath());
         multipartFile.transferTo(file);
         return file.getPath();
+    }
+    public static boolean deleteImage(String filePath){
+        File file = new File(filePath);
+        return   file.delete();
     }
 }

@@ -97,10 +97,16 @@
   <update id="updateByPrimaryKey" parameterType="com.gzq.entity.ShortSlogan">
     update short_slogan
     set second_title = #{secondTitle,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      first_title = #{firstTitle,jdbcType=VARCHAR},
-      href = #{href,jdbcType=VARCHAR},
-      src = #{src,jdbcType=VARCHAR}
+      first_title = #{firstTitle,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="findAllByStatus" resultMap="BaseResultMap">
+    select id,first_title,second_title from short_slogan where status =#{status}
+  </select>
+  <insert id="savaShortSlogan" parameterType="com.gzq.entity.ShortSlogan">
+    insert into short_slogan (first_title,second_title,status) values (#{firstTitle},#{secondTitle},0)
+  </insert>
+  <insert id="savaShortSlogan1" parameterType="com.gzq.entity.ShortSlogan">
+    insert into short_slogan (first_title,second_title,status,href,src) values (#{firstTitle},#{secondTitle},#{status},#{href},#{src})
+  </insert>
 </mapper>

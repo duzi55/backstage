@@ -106,4 +106,7 @@
   <insert id="savaShortSlogan" parameterType="com.gzq.entity.ShortSlogan">
     insert into short_slogan (first_title,second_title,status) values (#{firstTitle},#{secondTitle},0)
   </insert>
+  <insert id="savaShortSlogan1" parameterType="com.gzq.entity.ShortSlogan">
+    insert into short_slogan (first_title,second_title,status,href,src) values (#{firstTitle},#{secondTitle},#{status},#{href},#{src})
+  </insert>
 </mapper>
